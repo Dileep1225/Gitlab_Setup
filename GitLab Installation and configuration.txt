@@ -1,0 +1,29 @@
+Pre-Requisites
+   Amazon Linux Instance
+   Check required dependencies
+Check required dependencies:
+    systemctl status postfix
+    If not in active please follow below steps:
+
+Install and Configure Required Dependencies:
+    First, start by installing the following necessary dependencies using the yum package manager as shown
+        yum install curl policycoreutils-python openssh-server -y 
+Install Postfix service to send notification emails, and enable it to start at system boot, then check if it is up and running using following commands.
+     yum install postfix
+     systemctl start postfix
+     systemctl enable postfix
+     systemctl status postfix
+Gitlab Installation:
+   Add GitLab Repository and Install Package
+       curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | sudo bash
+        EXTERNAL_URL="http://54.144.17.106" yum install -y gitlab-ce
+		
+		
+Reset The Password "
+
+   gitlab-rails console -e production - To start the rubby rail console
+   user = User.where(id: 1).first - Find the user name
+   user.password = 'secret_pass'  - Reset the password
+   user.password_confirmation = 'secret_pass' - Confirm the password
+   user.save! - To save the console
+   1
